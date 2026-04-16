@@ -1,0 +1,2 @@
+-- supabase/migrations/20260416081232_add_financial_documents_table.sql
+-- TODO: Paste implementation here

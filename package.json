@@ -1,0 +1,11 @@
+{
+  "name": "zimscore",
+  "private": true,
+  "scripts": {
+    "dev": "cd frontend && npm install && npx vite",
+    "build": "cd frontend && npm install && npx vite build",
+    "build:dev": "cd frontend && npm install && npx vite build --mode development",
+    "preview": "cd frontend && npx vite preview",
+    "test": "cd frontend && npx vitest run"
+  }
+}
