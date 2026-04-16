@@ -73,7 +73,7 @@ export default function WalletPage() {
 
     setIsLoading(true);
     try {
-      const response = await fetch("/api/ecocash/deposit", {
+      const response = await fetch("/_/backend/ecocash/deposit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mobile_number: accountRef, amount: amt }),
@@ -146,7 +146,7 @@ export default function WalletPage() {
 
     setIsLoading(true);
     try {
-      const response = await fetch("/api/ecocash/withdraw", {
+      const response = await fetch("/_/backend/ecocash/withdraw", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mobile_number: accountRef, amount: amt }),

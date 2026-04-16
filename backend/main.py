@@ -60,7 +60,7 @@ class ScoreCalculationRequest(BaseModel):
     current_debt: float = 0.0
     monthly_income: float = 0.0
 
-@app.post("/api/calculate-score")
+@app.post("/calculate-score")
 def calculate_score(request: ScoreCalculationRequest):
     # Process transactions if provided
     if request.transactions:
@@ -85,17 +85,17 @@ def calculate_score(request: ScoreCalculationRequest):
     
     return result
 
-@app.post("/api/ecocash/deposit")
+@app.post("/ecocash/deposit")
 def ecocash_deposit(request: EcoCashRequest):
     reference = request.reference or f"DEP-{uuid.uuid4().hex[:8].upper()}"
     return ecocash.initiate_deposit(request.mobile_number, request.amount, reference)
 
-@app.post("/api/ecocash/withdraw")
+@app.post("/ecocash/withdraw")
 def ecocash_withdraw(request: EcoCashRequest):
     reference = request.reference or f"WTH-{uuid.uuid4().hex[:8].upper()}"
     return ecocash.initiate_withdrawal(request.mobile_number, request.amount, reference)
 
-@app.get("/api/ecocash/status/{client_correlator}")
+@app.get("/ecocash/status/{client_correlator}")
 def ecocash_status(client_correlator: str):
     return ecocash.check_status(client_correlator)
 
